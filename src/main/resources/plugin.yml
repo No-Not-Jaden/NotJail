@@ -1,0 +1,27 @@
+name: NotJail
+version: ${project.version}
+main: me.jadenp.notjail.NotJail
+api-version: 1.17
+authors: [ Not_Jaden ]
+description: Slightly more realistic punishment system
+commands:
+  notjail:
+    description: jail people
+    usage: /notjail
+    aliases:
+      - jail
+      - njail
+  unnotjail:
+    description: unjail people
+    usage: /unnotjail
+    aliases:
+      - unjail
+      - unnjail
+permissions:
+  notjail.admin:
+    description: ability to use commands and cannot be jailed
+    default: op
+  notjail.reload:
+    description: ability to reload the plugin
+    default: op
+
