@@ -1,0 +1,75 @@
+# Require the player to attend each roll call or get an extended sentence
+require-roll-call: false
+# Allow the sentence to be served while the player is offline
+serve-offline: true
+# If the clock matches the in game clock, set to true if doDaylightCycle is false
+independent-clock: true
+# A cosmetic feature for one player to be the warden with special effects near the prison (no permissions granted)
+warden: Not_Jaden
+# If a player can lose hunger while jailed
+hunger: true
+# If a player can get hurt while jailed (if the player is going to die they will be teleported to a medical bay or their cell)
+hurt: true
+# add time to a prison sentence if they hurt other prisoners (including villagers)
+punish-combat: true
+# commands to be preformed by console when a player is jailed or unjailed - used {player}
+jail-commands:
+  - 'fly {player} off'
+unjail-commands: []
+# Where a player will get released after completing their sentence
+# 0 = the world spawn that the cell is in
+# 1 = player's location before getting jailed
+# 2 = preset location with /notjail setRelease
+release-location: 1
+# whether the plugin should teleport the player to desired location twice after being unjailed
+# this should stop player from being able to do /back into the jail
+double-teleport: true
+# fill empty cells with villagers
+fill-empty-cells: true
+
+# 8000 ticks to sleep
+# 16 segments of 1000 ticks that can be changed
+# Lockup - must be in cell
+# Roll Call - must be in designated roll call space
+# Free Time - can roam around
+# any other string will be free time but displayed as is in the boss bar
+schedule:
+  - 'Lockup'
+  - 'Roll Call'
+  - 'Free Time'
+  - 'Free Time'
+  - 'Free Time'
+  - 'Lockup'
+  - 'Lunch'
+  - 'Lunch'
+  - 'Lunch'
+  - 'Lockup'
+  - 'Free Time'
+  - 'Free Time'
+  - 'Free Time'
+  - 'Lockup'
+  - 'Roll Call'
+  - 'Lockup'
+
+# reasons that can be selected in the jail gui
+# maximum of 36 reasons (who needs that many anyway)
+preset-jail-reasons:
+  - 'X-Ray'
+  - 'Hacked Client'
+  - 'Disrespectful Behavior'
+  - 'Jailed on Alternate Account'
+  - 'PvP Hacks'
+  - 'Fly/Speed Hacks'
+  - 'Ask Staff for a Specific Reason'
+
+# blocks that prisoners are allowed to break while in prison - takes spigot materials
+allowed-break:
+  - STONE
+  - COAL_ORE
+  - IRON_ORE
+# blocks that prisoners are allowed to place - takes spigot materials
+allowed-place:
+  - CAKE
+# blocks that prisoners can interact - takes spigot material
+allowed-interact:
+  - CHEST
