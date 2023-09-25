@@ -1,4 +1,4 @@
-package me.jadenp.notjail;
+package me.jadenp.notjail.old;
 
 import org.bukkit.ChatColor;
 import org.bukkit.Material;

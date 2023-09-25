@@ -1,6 +1,8 @@
 package me.jadenp.notjail;
 
-import org.apache.commons.lang.StringUtils;
+import me.jadenp.notjail.old.Cell;
+import me.jadenp.notjail.old.Items;
+import me.jadenp.notjail.old.Prisoner;
 import org.bukkit.*;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -18,14 +20,12 @@ import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.entity.FoodLevelChangeEvent;
 import org.bukkit.event.inventory.InventoryClickEvent;
-import org.bukkit.event.inventory.InventoryType;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
 import org.bukkit.event.player.PlayerCommandPreprocessEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
-import org.bukkit.inventory.PlayerInventory;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.inventory.meta.SkullMeta;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -33,7 +33,6 @@ import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.scoreboard.Scoreboard;
-import org.bukkit.scoreboard.ScoreboardManager;
 import org.bukkit.scoreboard.Team;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -42,7 +41,6 @@ import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
 import java.util.*;
 import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public final class NotJail extends JavaPlugin implements CommandExecutor, Listener {
@@ -177,11 +175,16 @@ public final class NotJail extends JavaPlugin implements CommandExecutor, Listen
     public Inventory removeCell; // remove cellID or from list
 
     public Items item = new Items(); // storing items
+    private static NotJail instance;
+
+    public static NotJail getInstance() {
+        return instance;
+    }
 
     @Override
     public void onEnable() {
         // Plugin startup logic
-
+        instance = this;
         // initialize commands & events
         Objects.requireNonNull(this.getCommand("notjail")).setExecutor(this);
         Objects.requireNonNull(this.getCommand("unnotjail")).setExecutor(this);
